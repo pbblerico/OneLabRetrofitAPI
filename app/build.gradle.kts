@@ -33,10 +33,10 @@ android {
             )
         }
         debug {
-            buildConfigField("String", "BASE_URL", "\"https://rickandmortyapi.com/api\"")
+            buildConfigField("String", "BASE_URL", "\"https://rickandmortyapi.com/api/\"")
         }
         release {
-            buildConfigField("String", "BASE_URL", "\"https://rickandmortyapi.com/api\"")
+            buildConfigField("String", "BASE_URL", "\"https://rickandmortyapi.com/api/\"")
         }
     }
     compileOptions {
@@ -64,7 +64,7 @@ dependencies {
     val navVersion = "2.7.7"
     val lifecycleVersion = "2.7.0"
 
-    //navigation componen   t
+    //navigation component
     implementation("androidx.navigation:navigation-fragment-ktx:$navVersion")
     implementation("androidx.navigation:navigation-ui-ktx:$navVersion")
 

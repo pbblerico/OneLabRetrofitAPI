@@ -1,5 +1,6 @@
 package com.example.onelabretrofitapi.data.di.network
 
+import com.example.onelabretrofitapi.BuildConfig
 import com.example.onelabretrofitapi.data.api.CharactersApi
 import dagger.Module
 import dagger.Provides
@@ -16,9 +17,6 @@ import javax.inject.Singleton
 @Module
 @InstallIn(SingletonComponent::class)
 object NetworkModule {
-    @CharacterUrl
-    @Provides
-    fun pictureUrl() = "https://rickandmortyapi.com/api/"
 
     @Provides
     fun provideLoggingInterceptor(): HttpLoggingInterceptor =
@@ -35,10 +33,10 @@ object NetworkModule {
     @Provides
     @Singleton
     fun provideCharactersRetrofit(
-        @CharacterUrl url: String, client: OkHttpClient
+        client: OkHttpClient
     ): Retrofit = Retrofit
         .Builder()
-        .baseUrl(url)
+        .baseUrl(BuildConfig.BASE_URL)
         .client(client)
         .addConverterFactory(GsonConverterFactory.create())
         .build()
@@ -49,6 +47,3 @@ object NetworkModule {
         retrofit: Retrofit
     ): CharactersApi = retrofit.create(CharactersApi::class.java)
 }
-
-@Qualifier
-annotation class CharacterUrl
