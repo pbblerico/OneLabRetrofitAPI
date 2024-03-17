@@ -1,4 +1,4 @@
-package com.example.onelabretrofitapi.presentation
+package com.example.onelabretrofitapi.presentation.ui
 
 import android.os.Bundle
 import android.util.Log
@@ -10,7 +10,6 @@ import androidx.core.view.isVisible
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.onelabretrofitapi.R
 import com.example.onelabretrofitapi.core.Resource
 import com.example.onelabretrofitapi.databinding.FragmentCharacterListBinding
 import com.example.onelabretrofitapi.presentation.adapter.CharacterAdapter
@@ -28,8 +27,8 @@ class CharacterListFragment : Fragment() {
             onItemClick = { id ->
                 onItemClick(id)
             },
-            onIconClick = { id ->
-                onIconClick(id)
+            onIconClick = { character ->
+                onIconClick(character)
             }
         )
     }
@@ -78,15 +77,13 @@ class CharacterListFragment : Fragment() {
     }
 
     private fun onItemClick(id: Int) {
-        val action = CharacterListFragmentDirections.actionCharacterListFragment2ToChaarcterInfoFragment(id)
+        val action = CharacterListFragmentDirections.actionCharacterListFragmentToChaarcterInfoFragment(id)
         findNavController().navigate(action)
         Log.d("ListFragment", "$id item")
     }
 
-    private fun onIconClick(id: Int) {
-//        val action =
-        Log.d("ListFragment", "$id icon")
-
+    private fun onIconClick(character: Character) {
+        viewModel.saveCharacter(character)
     }
 
     private fun initViews() {

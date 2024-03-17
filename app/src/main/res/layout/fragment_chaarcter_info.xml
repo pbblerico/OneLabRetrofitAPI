@@ -3,12 +3,94 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".presentation.ChaarcterInfoFragment">
+    android:background="@color/main_background"
+    tools:context=".presentation.ui.ChaarcterInfoFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <ProgressBar
+        android:id="@+id/progress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center" />
+
+    <LinearLayout
+        android:id="@+id/info"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <TextView
+            android:id="@+id/name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="16dp"
+            android:textColor="@color/white"
+            android:textSize="25sp"
+            android:textStyle="bold"
+            tools:text="@string/rick_and_morty_character_api" />
+
+        <ImageView
+            android:id="@+id/img"
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
+            android:contentDescription="@string/character_image"
+            android:layout_margin="10dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/status"
+            android:textColor="@color/text_gray"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/status"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:layout_margin="10dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/gender"
+            android:textColor="@color/text_gray"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/gender"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:layout_margin="10dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/species"
+            android:textColor="@color/text_gray"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/species"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:layout_margin="10dp"/>
+
+<!--        <ImageView-->
+<!--            android:id="@+id/rate"-->
+<!--            android:layout_width="35dp"-->
+<!--            android:layout_height="35dp"-->
+<!--            android:contentDescription="@string/rate"-->
+<!--            android:src="@drawable/ic_baseline_star"-->
+<!--            android:layout_gravity="end"-->
+<!--            />-->
+
+
+    </LinearLayout>
 
 </FrameLayout>

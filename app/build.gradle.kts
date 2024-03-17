@@ -64,7 +64,7 @@ dependencies {
     val navVersion = "2.7.7"
     val lifecycleVersion = "2.7.0"
 
-    //navigation component
+    //navigation componen   t
     implementation("androidx.navigation:navigation-fragment-ktx:$navVersion")
     implementation("androidx.navigation:navigation-ui-ktx:$navVersion")
 
@@ -95,5 +95,9 @@ dependencies {
     //coil
     implementation("io.coil-kt:coil:2.6.0")
 
-
+    //Room
+    val roomVersion = "2.6.1"
+    implementation("androidx.room:room-runtime:$roomVersion")
+    implementation ("androidx.room:room-ktx:$roomVersion")
+    kapt ("androidx.room:room-compiler:$roomVersion")
 }

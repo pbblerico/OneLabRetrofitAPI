@@ -3,31 +3,35 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".presentation.ui.CharacterListFragment"
     android:orientation="vertical"
+    tools:context=".presentation.ui.CharacterSavedListFragment"
     android:background="@color/main_background">
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/rick_and_morty_character_api"
-        android:gravity="center"
-        android:padding="16dp"
+        android:text="@string/saved_characters"
         android:textSize="25sp"
-        android:textColor="@color/white"
-        android:textStyle="bold"/>
+        android:gravity="center"
+        android:textColor="@color/black"
+        android:padding="10dp"
+        android:background="@color/text_gray"
+        android:textStyle="bold"
+        />
 
     <ProgressBar
         android:id="@+id/progress"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"/>
+        android:layout_gravity="center"
+        />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:listitem="@layout/item_character"/>
+        tools:listitem="@layout/item_character"
+        />
 
 
 </LinearLayout>

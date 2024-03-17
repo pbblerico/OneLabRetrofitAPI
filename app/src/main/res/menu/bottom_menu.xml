@@ -6,6 +6,5 @@
         />
 
     <item android:title="@string/saved"
-        android:id="@+id/characterListFragment"
-        tools:ignore="DuplicateIds" />
+        android:id="@+id/characterSavedListFragment" />
 </menu>

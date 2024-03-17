@@ -13,7 +13,7 @@ import com.example.onelabretrofitapi.databinding.ItemCharacterBinding
 import com.example.onelabretrofitapi.presentation.model.Character
 
 class CharacterAdapter(
-    private val onItemClick: ((Int) -> Unit), private val onIconClick: ((Int) -> Unit)
+    private val onItemClick: ((Int) -> Unit), private val onIconClick: ((Character) -> Unit)
 ) : ListAdapter<Character, CharacterAdapter.CharacterViewHolder>(DIFF_CALLBACK) {
 
     class CharacterViewHolder(
@@ -63,7 +63,7 @@ class CharacterAdapter(
         val layoutInflater = LayoutInflater.from(parent.context)
         val binding = ItemCharacterBinding.inflate(layoutInflater, parent, false)
         return CharacterViewHolder(binding, onIconClick = {
-            getItem(it).id?.let { it1 -> onIconClick(it1) }
+            onIconClick(getItem(it))
         }, onItemClick = {
             getItem(it).id?.let { it1 -> onItemClick(it1) }
         })

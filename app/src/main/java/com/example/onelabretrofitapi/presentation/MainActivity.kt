@@ -22,9 +22,9 @@ class MainActivity : AppCompatActivity() {
         val navHostFragment = supportFragmentManager.findFragmentById(R.id.fragment_host) as NavHostFragment
         val navController = navHostFragment.navController
 
-//        val nav = findNavController(R.id.rv)
-        binding.bottomNav.setupWithNavController(navController)
+
         val graph = navController.navInflater.inflate(R.navigation.character_nav)
         navController.setGraph(graph, intent.extras)
+        binding.bottomNav.setupWithNavController(navController)
     }
 }
