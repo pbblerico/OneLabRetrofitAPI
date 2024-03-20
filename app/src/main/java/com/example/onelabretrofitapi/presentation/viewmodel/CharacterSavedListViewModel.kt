@@ -5,10 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.onelabretrofitapi.core.Resource
-import com.example.onelabretrofitapi.core.onFailure
-import com.example.onelabretrofitapi.core.onSuccess
 import com.example.onelabretrofitapi.domain.useCase.CharacterDeleteByIdUseCase
-import com.example.onelabretrofitapi.domain.useCase.CharacterSaveUseCase
 import com.example.onelabretrofitapi.domain.useCase.CharacterSavedListUseCase
 import com.example.onelabretrofitapi.presentation.model.Character
 import dagger.hilt.android.lifecycle.HiltViewModel

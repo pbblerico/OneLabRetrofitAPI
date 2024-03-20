@@ -1,6 +1,6 @@
 package com.example.onelabretrofitapi.data.di.useCase
 
-import com.example.onelabretrofitapi.data.repository.CharactersRepository
+import com.example.onelabretrofitapi.domain.repository.CharactersRepository
 import com.example.onelabretrofitapi.domain.useCase.CharacterInfoUseCase
 import com.example.onelabretrofitapi.domain.useCase.CharacterInfoUseCaseImpl
 import com.example.onelabretrofitapi.domain.useCase.CharacterListUseCase

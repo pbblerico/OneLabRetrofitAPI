@@ -1,4 +1,4 @@
-package com.example.onelabretrofitapi.data.repository
+package com.example.onelabretrofitapi.data.repository.datasource.local
 
 import com.example.onelabretrofitapi.data.db.CharacterDao
 import com.example.onelabretrofitapi.data.mapper.toEntity
@@ -6,7 +6,8 @@ import com.example.onelabretrofitapi.data.mapper.toPresentation
 import com.example.onelabretrofitapi.presentation.model.Character
 import javax.inject.Inject
 
-interface RoomRepository {
+interface LocalDataSource {
+
     suspend fun getAllCharacters(): Result<List<Character>>
 
     suspend fun insertCharacter(character: Character)
@@ -14,8 +15,9 @@ interface RoomRepository {
     suspend fun deleteById(id: Int)
 }
 
-class RoomRepositoryImpl @Inject constructor(private val characterDao: CharacterDao) :
-    RoomRepository {
+class LocalDataSourceImpl @Inject constructor(
+    private val characterDao: CharacterDao
+): LocalDataSource {
     override suspend fun getAllCharacters(): Result<List<Character>> {
         return Result.success(characterDao.getAll().map { it.toPresentation() })
     }
@@ -27,6 +29,4 @@ class RoomRepositoryImpl @Inject constructor(private val characterDao: Character
     override suspend fun deleteById(id: Int) {
         characterDao.deleteById(id)
     }
-
-
 }

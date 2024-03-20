@@ -1,6 +1,5 @@
 package com.example.onelabretrofitapi.presentation.adapter
 
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
@@ -28,6 +27,7 @@ class CharacterAdapter(
             }
             binding.rate.setOnClickListener {
                 onIconClick.invoke(bindingAdapterPosition)
+                binding.rate.setImageResource(R.drawable.ic_baseline_star)
             }
         }
 
@@ -54,8 +54,6 @@ class CharacterAdapter(
             override fun areContentsTheSame(oldItem: Character, newItem: Character): Boolean {
                 return oldItem == newItem
             }
-
-
         }
     }
 
@@ -65,7 +63,9 @@ class CharacterAdapter(
         return CharacterViewHolder(binding, onIconClick = {
             onIconClick(getItem(it))
         }, onItemClick = {
-            getItem(it).id?.let { it1 -> onItemClick(it1) }
+            getItem(it).id?.let {
+                it1 -> onItemClick(it1)
+            }
         })
     }
 

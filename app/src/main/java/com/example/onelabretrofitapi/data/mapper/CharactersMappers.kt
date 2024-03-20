@@ -1,6 +1,6 @@
 package com.example.onelabretrofitapi.data.mapper
 
-import com.example.onelabretrofitapi.data.db.CharacterEntity
+import com.example.onelabretrofitapi.data.model.CharacterEntity
 import com.example.onelabretrofitapi.data.model.CharacterDTO
 import com.example.onelabretrofitapi.data.model.CharacterListDTO
 import com.example.onelabretrofitapi.presentation.model.Character

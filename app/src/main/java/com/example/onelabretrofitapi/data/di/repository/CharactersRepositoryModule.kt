@@ -1,8 +1,10 @@
 package com.example.onelabretrofitapi.data.di.repository
 
 import com.example.onelabretrofitapi.data.api.CharactersApi
-import com.example.onelabretrofitapi.data.repository.CharactersRepository
-import com.example.onelabretrofitapi.data.repository.CharactersRepositoryImpl
+import com.example.onelabretrofitapi.data.repository.datasource.local.LocalDataSource
+import com.example.onelabretrofitapi.data.repository.datasource.remote.RemoteDataSource
+import com.example.onelabretrofitapi.domain.repository.CharactersRepository
+import com.example.onelabretrofitapi.domain.repository.CharactersRepositoryImpl
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -14,5 +16,8 @@ import javax.inject.Singleton
 object CharactersRepositoryModule {
     @Provides
     @Singleton
-    fun provideCharactersRepository(charactersApi: CharactersApi): CharactersRepository = CharactersRepositoryImpl(charactersApi)
+    fun provideCharactersRepository(
+        remoteDataSource: RemoteDataSource,
+        localDataSource: LocalDataSource
+    ): CharactersRepository = CharactersRepositoryImpl(remoteDataSource, localDataSource)
 }

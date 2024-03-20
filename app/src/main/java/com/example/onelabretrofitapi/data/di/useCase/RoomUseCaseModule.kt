@@ -1,7 +1,6 @@
 package com.example.onelabretrofitapi.data.di.useCase
 
-import com.example.onelabretrofitapi.data.db.CharacterDao
-import com.example.onelabretrofitapi.data.repository.RoomRepository
+import com.example.onelabretrofitapi.domain.repository.CharactersRepository
 import com.example.onelabretrofitapi.domain.useCase.CharacterDeleteByIdUseCase
 import com.example.onelabretrofitapi.domain.useCase.CharacterDeleteByIdUseCaseImpl
 import com.example.onelabretrofitapi.domain.useCase.CharacterSaveUseCase
@@ -19,11 +18,11 @@ import dagger.hilt.components.SingletonComponent
 object RoomUseCaseModule {
 
     @Provides
-    fun provideCharacterSavedListUseCase(repo: RoomRepository): CharacterSavedListUseCase = CharacterSavedListUseCaseImpl(repo)
+    fun provideCharacterSavedListUseCase(repo: CharactersRepository): CharacterSavedListUseCase = CharacterSavedListUseCaseImpl(repo)
 
     @Provides
-    fun provideCharacterSaveUseCase(repo: RoomRepository): CharacterSaveUseCase = CharacterSaveUseCaseImpl(repo)
+    fun provideCharacterSaveUseCase(repo: CharactersRepository): CharacterSaveUseCase = CharacterSaveUseCaseImpl(repo)
 
     @Provides
-    fun provideCharacterDeleteByIdUseCase(repo: RoomRepository): CharacterDeleteByIdUseCase = CharacterDeleteByIdUseCaseImpl(repo)
+    fun provideCharacterDeleteByIdUseCase(repo: CharactersRepository): CharacterDeleteByIdUseCase = CharacterDeleteByIdUseCaseImpl(repo)
 }

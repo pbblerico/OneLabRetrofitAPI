@@ -1,6 +1,6 @@
 package com.example.onelabretrofitapi.domain.useCase
 
-import com.example.onelabretrofitapi.data.repository.RoomRepository
+import com.example.onelabretrofitapi.domain.repository.CharactersRepository
 import javax.inject.Inject
 
 interface CharacterDeleteByIdUseCase {
@@ -8,7 +8,7 @@ interface CharacterDeleteByIdUseCase {
 }
 
 class CharacterDeleteByIdUseCaseImpl @Inject constructor(
-    private val repo: RoomRepository
+    private val repo: CharactersRepository
 ): CharacterDeleteByIdUseCase {
     override suspend fun execute(id: Int) {
         repo.deleteById(id)

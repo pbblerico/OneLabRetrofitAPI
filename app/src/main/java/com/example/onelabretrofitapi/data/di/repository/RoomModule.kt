@@ -5,8 +5,8 @@ import androidx.room.Room
 import com.example.onelabretrofitapi.data.db.CharacterDao
 import com.example.onelabretrofitapi.data.db.DATABASE_NAME_CHARACTERS
 import com.example.onelabretrofitapi.data.db.MyRoomDatabase
-import com.example.onelabretrofitapi.data.repository.RoomRepository
-import com.example.onelabretrofitapi.data.repository.RoomRepositoryImpl
+import com.example.onelabretrofitapi.data.repository.datasource.local.LocalDataSource
+import com.example.onelabretrofitapi.data.repository.datasource.local.LocalDataSourceImpl
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -33,5 +33,5 @@ object RoomModule {
 
     @Provides
     @Singleton
-    fun provideRoomRepository(dao: CharacterDao): RoomRepository = RoomRepositoryImpl(dao)
+    fun provideLocalDataSource(dao: CharacterDao): LocalDataSource = LocalDataSourceImpl(dao)
 }

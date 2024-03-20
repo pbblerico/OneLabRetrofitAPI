@@ -1,9 +1,10 @@
 package com.example.onelabretrofitapi.data.db
 
 import androidx.room.Dao
-import androidx.room.Delete
 import androidx.room.Insert
+import androidx.room.OnConflictStrategy
 import androidx.room.Query
+import com.example.onelabretrofitapi.data.model.CharacterEntity
 
 
 @Dao
@@ -12,7 +13,7 @@ interface CharacterDao {
     @Query("SELECT * FROM $TABLE_NAME_CHARACTER")
     suspend fun getAll(): List<CharacterEntity>
 
-    @Insert
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insert(entity: CharacterEntity)
 
     @Query("DELETE FROM $TABLE_NAME_CHARACTER")
