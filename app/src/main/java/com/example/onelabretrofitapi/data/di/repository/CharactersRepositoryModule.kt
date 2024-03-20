@@ -2,6 +2,7 @@ package com.example.onelabretrofitapi.data.di.repository
 
 import com.example.onelabretrofitapi.data.api.CharactersApi
 import com.example.onelabretrofitapi.data.repository.datasource.local.LocalDataSource
+import com.example.onelabretrofitapi.data.repository.datasource.remote.CharacterPagingSource
 import com.example.onelabretrofitapi.data.repository.datasource.remote.RemoteDataSource
 import com.example.onelabretrofitapi.domain.repository.CharactersRepository
 import com.example.onelabretrofitapi.domain.repository.CharactersRepositoryImpl
@@ -14,10 +15,16 @@ import javax.inject.Singleton
 @Module
 @InstallIn(SingletonComponent::class)
 object CharactersRepositoryModule {
+
+    @Provides
+    @Singleton
+    fun providePagingSource(api: CharactersApi) = CharacterPagingSource(api)
+
     @Provides
     @Singleton
     fun provideCharactersRepository(
         remoteDataSource: RemoteDataSource,
-        localDataSource: LocalDataSource
-    ): CharactersRepository = CharactersRepositoryImpl(remoteDataSource, localDataSource)
+        localDataSource: LocalDataSource,
+        pagingSource: CharacterPagingSource
+    ): CharactersRepository = CharactersRepositoryImpl(remoteDataSource, localDataSource, pagingSource)
 }
