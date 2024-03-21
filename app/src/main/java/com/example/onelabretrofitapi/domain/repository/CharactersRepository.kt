@@ -4,7 +4,7 @@ import androidx.paging.Pager
 import androidx.paging.PagingConfig
 import androidx.paging.PagingData
 import com.example.onelabretrofitapi.core.BaseRepository
-import com.example.onelabretrofitapi.core.State
+import com.example.onelabretrofitapi.core.functional.State
 import com.example.onelabretrofitapi.data.repository.datasource.local.LocalDataSource
 import com.example.onelabretrofitapi.data.repository.datasource.remote.CharacterPagingSource
 import com.example.onelabretrofitapi.data.repository.datasource.remote.RemoteDataSource

@@ -1,6 +1,6 @@
 package com.example.onelabretrofitapi.domain.useCase
 
-import com.example.onelabretrofitapi.core.State
+import com.example.onelabretrofitapi.core.functional.State
 import com.example.onelabretrofitapi.domain.repository.CharactersRepository
 import com.example.onelabretrofitapi.presentation.model.Character
 import javax.inject.Inject

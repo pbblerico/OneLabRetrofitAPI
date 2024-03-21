@@ -1,6 +1,7 @@
 package com.example.onelabretrofitapi.core
 
 import android.util.Log
+import com.example.onelabretrofitapi.core.functional.State
 
 open class BaseRepository {
 

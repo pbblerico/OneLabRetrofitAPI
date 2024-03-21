@@ -1,4 +1,4 @@
-package com.example.onelabretrofitapi.core
+package com.example.onelabretrofitapi.core.functional
 
 sealed class Resource<out Data> {
     data object Loading : Resource<Nothing>()

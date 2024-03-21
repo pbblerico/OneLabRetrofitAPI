@@ -1,4 +1,4 @@
-package com.example.onelabretrofitapi.core
+package com.example.onelabretrofitapi.core.functional
 
 import android.util.Log
 

@@ -12,9 +12,8 @@ import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.paging.PagingData
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.onelabretrofitapi.core.Resource
+import com.example.onelabretrofitapi.core.functional.Resource
 import com.example.onelabretrofitapi.databinding.FragmentCharacterListBinding
-import com.example.onelabretrofitapi.presentation.adapter.CharacterAdapter
 import com.example.onelabretrofitapi.presentation.adapter.CharacterPagingAdapter
 import com.example.onelabretrofitapi.presentation.model.Character
 import com.example.onelabretrofitapi.presentation.viewmodel.CharacterListViewModel

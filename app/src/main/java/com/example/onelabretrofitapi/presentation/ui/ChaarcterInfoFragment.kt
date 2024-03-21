@@ -12,7 +12,7 @@ import androidx.navigation.fragment.navArgs
 import coil.load
 import coil.size.Scale
 import com.example.onelabretrofitapi.R
-import com.example.onelabretrofitapi.core.Resource
+import com.example.onelabretrofitapi.core.functional.Resource
 import com.example.onelabretrofitapi.databinding.FragmentChaarcterInfoBinding
 import com.example.onelabretrofitapi.presentation.model.Character
 import com.example.onelabretrofitapi.presentation.viewmodel.CharacterInfoViewModel

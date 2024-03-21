@@ -10,7 +10,7 @@ import androidx.core.view.isVisible
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.onelabretrofitapi.core.Resource
+import com.example.onelabretrofitapi.core.functional.Resource
 import com.example.onelabretrofitapi.databinding.FragmentCharacterSavedListBinding
 import com.example.onelabretrofitapi.presentation.adapter.CharacterAdapter
 import com.example.onelabretrofitapi.presentation.model.Character
