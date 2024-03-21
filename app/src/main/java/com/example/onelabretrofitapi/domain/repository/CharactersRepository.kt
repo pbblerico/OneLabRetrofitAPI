@@ -6,7 +6,6 @@ import androidx.paging.PagingData
 import com.example.onelabretrofitapi.core.BaseRepository
 import com.example.onelabretrofitapi.core.functional.State
 import com.example.onelabretrofitapi.data.repository.datasource.local.LocalDataSource
-import com.example.onelabretrofitapi.data.repository.datasource.remote.CharacterPagingSource
 import com.example.onelabretrofitapi.data.repository.datasource.remote.RemoteDataSource
 import com.example.onelabretrofitapi.presentation.model.Character
 import com.example.onelabretrofitapi.presentation.model.CharacterList
@@ -27,7 +26,7 @@ interface CharactersRepository {
 
     suspend fun deleteById(id: Int)
 
-    fun getCharacterPagingFlow(): Flow<PagingData<Character>>
+    suspend fun getCharacterPagingFlow(): Flow<PagingData<Character>>
 
 
 //    var characterFlow: Flow<PagingData<Character>>
@@ -62,7 +61,7 @@ class CharactersRepositoryImpl @Inject constructor(
         localDataSource.deleteById(id)
     }
 
-    override fun getCharacterPagingFlow(): Flow<PagingData<Character>> {
+    override suspend fun getCharacterPagingFlow(): Flow<PagingData<Character>> {
         return Pager(
             config = PagingConfig(20, enablePlaceholders = false, initialLoadSize = 1),
             pagingSourceFactory = { pagingSource }

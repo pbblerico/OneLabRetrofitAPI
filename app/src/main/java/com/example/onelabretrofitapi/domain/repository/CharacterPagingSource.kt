@@ -1,4 +1,4 @@
-package com.example.onelabretrofitapi.data.repository.datasource.remote
+package com.example.onelabretrofitapi.domain.repository
 
 import androidx.paging.PagingSource
 import androidx.paging.PagingState
