@@ -2,9 +2,9 @@ package com.example.onelabretrofitapi.data.di.repository
 
 import android.content.Context
 import androidx.room.Room
-import com.example.onelabretrofitapi.data.db.CharacterDao
-import com.example.onelabretrofitapi.data.db.DATABASE_NAME_CHARACTERS
-import com.example.onelabretrofitapi.data.db.MyRoomDatabase
+import com.example.onelabretrofitapi.data.local.CharacterDao
+import com.example.onelabretrofitapi.data.DATABASE_NAME_CHARACTERS
+import com.example.onelabretrofitapi.data.local.MyRoomDatabase
 import com.example.onelabretrofitapi.data.repository.datasource.local.LocalDataSource
 import com.example.onelabretrofitapi.data.repository.datasource.local.LocalDataSourceImpl
 import dagger.Module

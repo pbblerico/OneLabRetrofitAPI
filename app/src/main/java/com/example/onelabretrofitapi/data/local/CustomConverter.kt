@@ -1,4 +1,4 @@
-package com.example.onelabretrofitapi.data.db
+package com.example.onelabretrofitapi.data.local
 
 import androidx.room.TypeConverter
 import com.example.onelabretrofitapi.presentation.model.Character

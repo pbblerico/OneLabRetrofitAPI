@@ -1,9 +1,11 @@
-package com.example.onelabretrofitapi.data.db
+package com.example.onelabretrofitapi.data.local
 
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
+import com.example.onelabretrofitapi.data.COLUMN_NAME_CHARACTER_ID
+import com.example.onelabretrofitapi.data.TABLE_NAME_CHARACTER
 import com.example.onelabretrofitapi.data.model.CharacterEntity
 
 

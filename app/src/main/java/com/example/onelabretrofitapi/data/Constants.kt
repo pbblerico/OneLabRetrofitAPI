@@ -1,4 +1,4 @@
-package com.example.onelabretrofitapi.data.db
+package com.example.onelabretrofitapi.data
 
 const val DATABASE_NAME_CHARACTERS = "characters.db"
 const val TABLE_NAME_CHARACTER = "character"

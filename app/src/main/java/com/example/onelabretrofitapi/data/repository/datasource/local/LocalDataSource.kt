@@ -1,6 +1,6 @@
 package com.example.onelabretrofitapi.data.repository.datasource.local
 
-import com.example.onelabretrofitapi.data.db.CharacterDao
+import com.example.onelabretrofitapi.data.local.CharacterDao
 import com.example.onelabretrofitapi.data.mapper.toEntity
 import com.example.onelabretrofitapi.data.mapper.toPresentation
 import com.example.onelabretrofitapi.presentation.model.Character
