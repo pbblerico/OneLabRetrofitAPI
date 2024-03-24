@@ -11,4 +11,6 @@
     <string name="status">status:</string>
     <string name="gender">gender:</string>
     <string name="saved_characters">Saved Characters</string>
+    <string name="character_update_cache_channel">Update cache channel</string>
+    <string name="character_update_cache_channel_desc">Update cache description</string>
 </resources>

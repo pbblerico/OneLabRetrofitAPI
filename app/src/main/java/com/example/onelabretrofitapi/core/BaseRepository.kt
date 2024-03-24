@@ -1,15 +1,15 @@
 package com.example.onelabretrofitapi.core
 
 import android.util.Log
-import com.example.onelabretrofitapi.core.functional.State
+import com.example.onelabretrofitapi.core.functional.Result
 
 open class BaseRepository {
 
-    protected suspend fun <T : Any> apiCall(call: suspend () -> T): State<Throwable, T> =
+    protected suspend fun <T : Any> apiCall(call: suspend () -> T): Result<Throwable, T> =
         try {
-            State.Success(call.invoke())
+            Result.Success(call.invoke())
         } catch (throwable: Throwable) {
             Log.e("apiCall", "error", throwable)
-            State.Error(throwable)
+            Result.Error(throwable)
         }
 }

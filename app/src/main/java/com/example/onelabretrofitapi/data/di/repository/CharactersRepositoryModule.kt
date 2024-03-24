@@ -1,5 +1,6 @@
 package com.example.onelabretrofitapi.data.di.repository
 
+import com.example.onelabretrofitapi.core.NetworkChecker
 import com.example.onelabretrofitapi.data.api.CharactersApi
 import com.example.onelabretrofitapi.data.repository.datasource.local.LocalDataSource
 import com.example.onelabretrofitapi.data.paging.CharacterPagingSource
@@ -25,6 +26,7 @@ object CharactersRepositoryModule {
     fun provideCharactersRepository(
         remoteDataSource: RemoteDataSource,
         localDataSource: LocalDataSource,
-        pagingSource: CharacterPagingSource
-    ): CharactersRepository = CharactersRepositoryImpl(remoteDataSource, localDataSource, pagingSource)
+        pagingSource: CharacterPagingSource,
+        networkChecker: NetworkChecker
+    ): CharactersRepository = CharactersRepositoryImpl(remoteDataSource, localDataSource, pagingSource, networkChecker)
 }

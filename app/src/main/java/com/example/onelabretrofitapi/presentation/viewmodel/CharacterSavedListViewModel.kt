@@ -5,6 +5,8 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.onelabretrofitapi.core.functional.Resource
+import com.example.onelabretrofitapi.core.functional.onFailure
+import com.example.onelabretrofitapi.core.functional.onSuccess
 import com.example.onelabretrofitapi.domain.useCase.CharacterDeleteByIdUseCase
 import com.example.onelabretrofitapi.domain.useCase.CharacterSavedListUseCase
 import com.example.onelabretrofitapi.presentation.model.Character
