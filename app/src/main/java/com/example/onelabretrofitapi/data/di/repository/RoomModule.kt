@@ -4,6 +4,7 @@ import android.content.Context
 import androidx.room.Room
 import com.example.onelabretrofitapi.data.local.CharacterDao
 import com.example.onelabretrofitapi.data.DATABASE_NAME_CHARACTERS
+import com.example.onelabretrofitapi.data.local.CacheDao
 import com.example.onelabretrofitapi.data.local.MyRoomDatabase
 import com.example.onelabretrofitapi.data.repository.datasource.local.LocalDataSource
 import com.example.onelabretrofitapi.data.repository.datasource.local.LocalDataSourceImpl
@@ -32,6 +33,9 @@ object RoomModule {
     fun provideCharacterDao(db: MyRoomDatabase): CharacterDao = db.charactersDao()
 
     @Provides
+    fun provideCacheDao(db: MyRoomDatabase): CacheDao = db.cacheDao()
+
+    @Provides
     @Singleton
-    fun provideLocalDataSource(dao: CharacterDao): LocalDataSource = LocalDataSourceImpl(dao)
+    fun provideLocalDataSource(characterDao: CharacterDao, cacheDao: CacheDao): LocalDataSource = LocalDataSourceImpl(characterDao, cacheDao)
 }

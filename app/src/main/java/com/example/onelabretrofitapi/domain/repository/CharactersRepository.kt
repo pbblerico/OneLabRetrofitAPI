@@ -11,7 +11,7 @@ interface CharactersRepository {
 
     val observeCharacterStateFlow: Flow<State<List<Character>>>
 
-    suspend fun fetchCharacterList()
+    suspend fun fetchCharacterList(shouldUpdate: Boolean = false)
 
     suspend fun getCharacterList(): Result<Throwable, CharacterList>
 

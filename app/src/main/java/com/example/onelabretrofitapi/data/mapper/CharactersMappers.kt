@@ -1,5 +1,6 @@
 package com.example.onelabretrofitapi.data.mapper
 
+import com.example.onelabretrofitapi.data.model.CharacterCacheEntity
 import com.example.onelabretrofitapi.data.model.CharacterEntity
 import com.example.onelabretrofitapi.data.model.CharacterDTO
 import com.example.onelabretrofitapi.data.model.CharacterListDTO
@@ -28,7 +29,25 @@ internal fun Character.toEntity() = CharacterEntity(
     characterImage = image
 )
 
+internal fun Character.toCacheEntity() = CharacterCacheEntity(
+    characterId = id,
+    characterStatus = status,
+    characterSpecies = species,
+    characterGender = gender,
+    characterName = name,
+    characterImage = image
+)
+
 internal fun CharacterEntity.toPresentation() = Character(
+    id = characterId,
+    name = characterName,
+    status = characterStatus,
+    species = characterSpecies,
+    gender = characterGender,
+    image = characterImage
+)
+
+internal fun CharacterCacheEntity.toPresentation() = Character(
     id = characterId,
     name = characterName,
     status = characterStatus,

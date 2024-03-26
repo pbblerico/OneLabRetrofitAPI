@@ -43,11 +43,15 @@ android {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
     }
+    composeOptions {
+        kotlinCompilerExtensionVersion = "1.5.8"
+    }
     kotlinOptions {
         jvmTarget = "1.8"
     }
     buildFeatures {
         viewBinding = true
+        compose = true
     }
 }
 
@@ -57,9 +61,16 @@ dependencies {
     implementation("androidx.appcompat:appcompat:1.6.1")
     implementation("com.google.android.material:material:1.11.0")
     implementation("androidx.constraintlayout:constraintlayout:2.1.4")
+    implementation("androidx.work:work-runtime-ktx:2.9.0")
+    implementation("androidx.compose.ui:ui-android:1.6.4")
+    implementation("androidx.hilt:hilt-navigation-compose:1.2.0")
+    implementation("androidx.compose.material3:material3-android:1.2.1")
+    implementation ("androidx.compose.ui:ui-tooling-preview:1.6.4")
+    implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.7.0")
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
+    debugImplementation("androidx.compose.ui:ui-tooling:1.6.4")
 
     val navVersion = "2.7.7"
     val lifecycleVersion = "2.7.0"
@@ -88,12 +99,14 @@ dependencies {
     //hilt
     implementation("com.google.dagger:hilt-android:2.46.1")
     kapt("com.google.dagger:hilt-compiler:2.46.1")
+    implementation( "androidx.hilt:hilt-work:1.2.0")
 
     //paging3
     implementation("androidx.paging:paging-runtime:3.2.1")
 
     //coil
     implementation("io.coil-kt:coil:2.6.0")
+    implementation("io.coil-kt:coil-compose:2.0.0")
 
     //Room
     val roomVersion = "2.6.1"

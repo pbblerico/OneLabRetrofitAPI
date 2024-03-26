@@ -1,7 +1,5 @@
 package com.example.onelabretrofitapi.presentation.viewmodel
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.onelabretrofitapi.core.functional.Resource
@@ -11,6 +9,8 @@ import com.example.onelabretrofitapi.domain.useCase.CharacterDeleteByIdUseCase
 import com.example.onelabretrofitapi.domain.useCase.CharacterSavedListUseCase
 import com.example.onelabretrofitapi.presentation.model.Character
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -19,9 +19,15 @@ class CharacterSavedListViewModel @Inject constructor(
     private val savedCharacters: CharacterSavedListUseCase,
     private val deleteCharacters: CharacterDeleteByIdUseCase
 ): ViewModel() {
-    private val _charactersLiveData = MutableLiveData<Resource<List<Character>>>()
-    val characterLiveData: LiveData<Resource<List<Character>>>
+    private val _charactersLiveData = MutableStateFlow<Resource<List<Character>>>(Resource.Empty)
+    val characterLiveData: StateFlow<Resource<List<Character>>>
         get() = _charactersLiveData
+
+    init {
+        viewModelScope.launch {
+            getCharacters()
+        }
+    }
 
     fun getCharacters() {
         _charactersLiveData.value = Resource.Loading
@@ -37,7 +43,6 @@ class CharacterSavedListViewModel @Inject constructor(
     }
 
     fun deleteCharacterById(id: Int) {
-        _charactersLiveData.value = Resource.Loading
         viewModelScope.launch {
             deleteCharacters.execute(id)
         }

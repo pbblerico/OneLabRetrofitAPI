@@ -1,14 +1,10 @@
 package com.example.onelabretrofitapi.data.repository.datasource.remote
 
-import androidx.paging.Pager
-import androidx.paging.PagingConfig
-import androidx.paging.PagingData
 import com.example.onelabretrofitapi.data.api.CharactersApi
 import com.example.onelabretrofitapi.data.mapper.toCharacter
 import com.example.onelabretrofitapi.data.mapper.toCharacterList
 import com.example.onelabretrofitapi.presentation.model.Character
 import com.example.onelabretrofitapi.presentation.model.CharacterList
-import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 
 interface RemoteDataSource {

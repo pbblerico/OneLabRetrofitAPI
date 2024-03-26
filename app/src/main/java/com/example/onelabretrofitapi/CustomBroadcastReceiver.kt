@@ -4,6 +4,7 @@ import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
 import android.os.Build
+import android.util.Log
 import androidx.annotation.RequiresApi
 import com.example.onelabretrofitapi.core.notification.CharacterNotification
 import com.example.onelabretrofitapi.core.notification.CharacterNotificationManager
@@ -18,10 +19,11 @@ class CustomBroadcastReceiver : BroadcastReceiver() {
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onReceive(context: Context?, intent: Intent?) {
         if(intent?.action == "TEST_ACTION") {
+            Log.d("re", "noti")
             characterNotificationManager.showNotification(
                 CharacterNotification(
-                    title = "title",
-                    text = "text",
+                    title = "Checkout New Character!",
+                    text = "Let's explore new characters of Rick & Morty Universe",
                     channelId = "update cache",
                     channelName = R.string.character_update_cache_channel,
                     icon = R.mipmap.ic_launcher,

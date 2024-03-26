@@ -17,22 +17,25 @@
             android:defaultValue="0" />
     </fragment>
     <fragment
-        android:id="@+id/characterSavedListFragment"
-        android:name="com.example.onelabretrofitapi.presentation.ui.CharacterSavedListFragment"
-        android:label="fragment_character_saved_list"
-        tools:layout="@layout/fragment_character_saved_list">
-        <action
-            android:id="@+id/action_characterSavedListFragment_to_chaarcterInfoFragment"
-            app:destination="@id/chaarcterInfoFragment" />
-    </fragment>
-    <fragment
         android:id="@+id/characterListFragment"
         android:name="com.example.onelabretrofitapi.presentation.ui.CharacterListFragment"
         android:label="fragment_character_list"
         tools:layout="@layout/fragment_character_list" >
         <action
             android:id="@+id/action_characterListFragment_to_chaarcterInfoFragment"
-            app:destination="@id/chaarcterInfoFragment" />
+            app:destination="@id/chaarcterInfoFragment"
+            app:popUpTo="@id/characterListFragment"
+            app:popUpToInclusive="true"/>
+    </fragment>
+    <fragment
+        android:id="@+id/characterFavoriteFragment"
+        android:name="com.example.onelabretrofitapi.presentation.ui.CharacterFavoriteFragment"
+        android:label="CharacterFavoriteFragment">
+        <action
+            android:id="@+id/action_characterFavoriteFragment_to_chaarcterInfoFragment"
+            app:destination="@id/chaarcterInfoFragment"
+            app:popUpTo="@id/characterFavoriteFragment"
+            app:popUpToInclusive="false"/>
     </fragment>
 
 </navigation>

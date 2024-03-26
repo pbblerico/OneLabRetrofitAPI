@@ -9,11 +9,34 @@ import com.example.onelabretrofitapi.data.COLUMN_NAME_CHARACTER_IMAGE
 import com.example.onelabretrofitapi.data.COLUMN_NAME_CHARACTER_NAME
 import com.example.onelabretrofitapi.data.COLUMN_NAME_CHARACTER_SPECIES
 import com.example.onelabretrofitapi.data.COLUMN_NAME_CHARACTER_STATUS
+import com.example.onelabretrofitapi.data.TABLE_NAME_CACHE
 import com.example.onelabretrofitapi.data.TABLE_NAME_CHARACTER
 
 
 @Entity(tableName = TABLE_NAME_CHARACTER)
 data class CharacterEntity (
+    @PrimaryKey(autoGenerate = false)
+    @ColumnInfo(name = COLUMN_NAME_CHARACTER_ID)
+    val characterId: Int?,
+
+    @ColumnInfo(name = COLUMN_NAME_CHARACTER_NAME)
+    val characterName: String?,
+
+    @ColumnInfo(name = COLUMN_NAME_CHARACTER_STATUS)
+    val characterStatus: String?,
+
+    @ColumnInfo(name = COLUMN_NAME_CHARACTER_GENDER)
+    val characterGender: String?,
+
+    @ColumnInfo(name = COLUMN_NAME_CHARACTER_SPECIES)
+    val characterSpecies: String?,
+
+    @ColumnInfo(name = COLUMN_NAME_CHARACTER_IMAGE)
+    val characterImage: String?
+)
+
+@Entity(tableName = TABLE_NAME_CACHE)
+data class CharacterCacheEntity (
     @PrimaryKey(autoGenerate = false)
     @ColumnInfo(name = COLUMN_NAME_CHARACTER_ID)
     val characterId: Int?,

@@ -9,7 +9,7 @@ import javax.inject.Inject
 interface CharacterListUseCase {
 //    suspend fun execute(): Result<Throwable, CharacterList>
     val observeCharacterList: Flow<State<List<Character>>>
-    suspend fun execute()
+    suspend fun execute(shouldUpdate: Boolean)
 }
 
 class CharacterListUseCaseImpl @Inject constructor(
@@ -19,7 +19,7 @@ class CharacterListUseCaseImpl @Inject constructor(
     override val observeCharacterList: Flow<State<List<Character>>>
         get() = charactersRepo.observeCharacterStateFlow
 
-    override suspend fun execute() {
+    override suspend fun execute(shouldUpdate: Boolean) {
         return charactersRepo.fetchCharacterList()
     }
 

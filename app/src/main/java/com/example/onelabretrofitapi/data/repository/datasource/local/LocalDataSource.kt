@@ -5,6 +5,8 @@ import com.example.onelabretrofitapi.data.mapper.toEntity
 import com.example.onelabretrofitapi.data.mapper.toPresentation
 import com.example.onelabretrofitapi.presentation.model.Character
 import com.example.onelabretrofitapi.core.functional.Result
+import com.example.onelabretrofitapi.data.local.CacheDao
+import com.example.onelabretrofitapi.data.mapper.toCacheEntity
 import javax.inject.Inject
 
 interface LocalDataSource {
@@ -21,7 +23,8 @@ interface LocalDataSource {
 }
 
 class LocalDataSourceImpl @Inject constructor(
-    private val characterDao: CharacterDao
+    private val characterDao: CharacterDao,
+    private val cacheDao: CacheDao
 ): LocalDataSource {
     override suspend fun getAllCharacters(): Result<Throwable, List<Character>> {
         return Result.Success(characterDao.getAll().map { it.toPresentation() })
@@ -36,11 +39,11 @@ class LocalDataSourceImpl @Inject constructor(
     }
 
     override suspend fun insertCharacterList(characters: List<Character>) {
-        characterDao.insertList(characters.map { it.toEntity() })
+        cacheDao.insertList(characters.map { it.toCacheEntity() })
     }
 
     override suspend fun clearAndInsert(characters: List<Character>) {
-        characterDao.clearAndInsert(characters.map { it.toEntity() })
+        cacheDao.clearAndInsert(characters.map { it.toCacheEntity() })
     }
 
 

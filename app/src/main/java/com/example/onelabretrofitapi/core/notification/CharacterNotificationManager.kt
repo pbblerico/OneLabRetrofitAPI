@@ -22,11 +22,11 @@ class CharacterNotificationManager @Inject constructor(
 
     @RequiresApi(Build.VERSION_CODES.O)
     @SuppressLint("MissingPermission")
-    fun showNotification(characterNotidication: CharacterNotification) {
+    fun showNotification(characterNotification: CharacterNotification) {
         val pendingIntent = context.getPendingIntent(MainActivity::class.java)
-        buildNotificationChannel(characterNotidication)
+        buildNotificationChannel(characterNotification)
         val notification = context.createNotification(
-            characterNotification = characterNotidication,
+            characterNotification = characterNotification,
             pendingIntent = pendingIntent
         )
         notificationManager.notify(

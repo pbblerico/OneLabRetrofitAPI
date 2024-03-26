@@ -50,9 +50,9 @@ class CharacterListViewModel @Inject constructor(
         }
     }
 
-    fun getCharacters() {
+    fun getCharacters(shouldUpdate: Boolean) {
         viewModelScope.launch {
-            characterListUseCase.execute()
+            characterListUseCase.execute(shouldUpdate)
         }
     }
 

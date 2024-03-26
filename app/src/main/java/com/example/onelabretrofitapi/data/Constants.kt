@@ -2,6 +2,7 @@ package com.example.onelabretrofitapi.data
 
 const val DATABASE_NAME_CHARACTERS = "characters.db"
 const val TABLE_NAME_CHARACTER = "character"
+const val TABLE_NAME_CACHE = "cache"
 const val COLUMN_NAME_CHARACTER_ID = "character_id"
 const val COLUMN_NAME_CHARACTER_NAME = "character_name"
 const val COLUMN_NAME_CHARACTER_STATUS = "character_status"

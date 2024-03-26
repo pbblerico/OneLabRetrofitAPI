@@ -6,6 +6,7 @@ import androidx.paging.PagingConfig
 import androidx.paging.PagingData
 import com.example.onelabretrofitapi.core.BaseRepository
 import com.example.onelabretrofitapi.core.NetworkChecker
+import com.example.onelabretrofitapi.core.functional.Result
 import com.example.onelabretrofitapi.core.functional.State
 import com.example.onelabretrofitapi.data.paging.CharacterPagingSource
 import com.example.onelabretrofitapi.data.repository.datasource.local.LocalDataSource
@@ -17,10 +18,8 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.withContext
-import com.example.onelabretrofitapi.core.functional.Result
-import com.example.onelabretrofitapi.core.functional.onFailure
-import com.example.onelabretrofitapi.core.functional.onSuccess
 import javax.inject.Inject
+import kotlin.random.Random
 
 
 class CharactersRepositoryImpl @Inject constructor(
@@ -34,7 +33,7 @@ class CharactersRepositoryImpl @Inject constructor(
     override val observeCharacterStateFlow: Flow<State<List<Character>>>
         get() = _characterDataFlow
 
-    override suspend fun fetchCharacterList() =
+    override suspend fun fetchCharacterList(shouldUpdate: Boolean) =
         withContext(Dispatchers.IO) {
             try {
                 val cachedCharacters = localDataSource.getAllCharacters() as Result.Success
@@ -46,7 +45,8 @@ class CharactersRepositoryImpl @Inject constructor(
                 }
                 if (networkChecker.isConnected) {
                     Log.d("Characters Repo", "Internet is connected")
-                    val characters = remoteDataSource.getCharacterList().characterList
+                    val randomPage = Random.Default.nextInt(1, 40)
+                    val characters = remoteDataSource.getCharacterList(randomPage).characterList
                     _characterDataFlow.emit(State.Data(characters))
                     localDataSource.clearAndInsert(characters)
                 } else if (cachedCharacters.b.isEmpty()) {

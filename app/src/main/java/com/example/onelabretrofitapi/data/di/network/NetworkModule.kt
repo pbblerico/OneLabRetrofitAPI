@@ -1,6 +1,5 @@
 package com.example.onelabretrofitapi.data.di.network
 
-import android.app.NotificationManager
 import android.content.Context
 import com.example.onelabretrofitapi.BuildConfig
 import com.example.onelabretrofitapi.core.NetworkChecker
@@ -14,7 +13,6 @@ import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-import javax.inject.Qualifier
 import javax.inject.Singleton
 
 

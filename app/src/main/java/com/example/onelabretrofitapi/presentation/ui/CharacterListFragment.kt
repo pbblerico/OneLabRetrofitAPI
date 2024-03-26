@@ -18,9 +18,15 @@ import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import androidx.fragment.app.viewModels
+import androidx.navigation.Navigation
 import androidx.navigation.fragment.findNavController
 import androidx.paging.PagingData
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.work.Constraints
+import androidx.work.ExistingPeriodicWorkPolicy
+import androidx.work.NetworkType
+import androidx.work.PeriodicWorkRequestBuilder
+import androidx.work.WorkManager
 import com.example.onelabretrofitapi.CustomBroadcastReceiver
 import com.example.onelabretrofitapi.core.functional.Resource
 import com.example.onelabretrofitapi.core.notification.CharacterNotificationManager
@@ -33,15 +39,15 @@ import com.example.onelabretrofitapi.utils.PermissionResult
 import com.example.onelabretrofitapi.utils.checkSelfPermission
 import com.example.onelabretrofitapi.utils.isPermissionGranted
 import com.example.onelabretrofitapi.utils.isTiramisuOrUp
+import com.example.onelabretrofitapi.worker.MyWorker
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import dagger.hilt.android.AndroidEntryPoint
+import java.util.concurrent.TimeUnit
 import javax.inject.Inject
 
 
 @AndroidEntryPoint
 class CharacterListFragment : Fragment() {
-
-    private val broadcastReceiver: CustomBroadcastReceiver = CustomBroadcastReceiver()
 
     private val permissionLauncher =
         registerForActivityResult(ActivityResultContracts.RequestPermission())
@@ -111,19 +117,8 @@ class CharacterListFragment : Fragment() {
         checkPostNotificationPermission()
         initViews()
         initObservers()
-        viewModel.getCharacters()
+        viewModel.getCharacters(false)
 //        viewModel.getPagingData()
-    }
-
-    override fun onStart() {
-        super.onStart()
-        ContextCompat.registerReceiver(
-            requireContext(),
-            broadcastReceiver,
-            IntentFilter("TEST_ACTION"),
-            ContextCompat.RECEIVER_NOT_EXPORTED
-        )
-        requireContext().sendBroadcast(Intent("TEST_ACTION"))
     }
 
     @RequiresApi(Build.VERSION_CODES.TIRAMISU)
@@ -215,7 +210,7 @@ class CharacterListFragment : Fragment() {
 
     private fun onItemClick(id: Int) {
         val action = CharacterListFragmentDirections.actionCharacterListFragmentToChaarcterInfoFragment(id)
-        findNavController().navigate(action)
+        Navigation.findNavController(binding.root).navigate(action)
         Log.d("ListFragment", "$id item")
     }
 
